@@ -1,0 +1,209 @@
+<!-- index.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+
+/* Global Styles */
+body {
+    background-image:url("{% static 'crop.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 100px;
+    margin-left: auto; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: auto; 
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('crop_field.jpg'); /* Assuming you have an image named crop_field.jpg */
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h2 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <center><h1>welcome investors</h1></center> 
+        <nav>
+            <ul>
+                
+                <li><a href="{% url 'index' %}">Logout</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+   
+    <div class="container">
+        <h1>Yield Recommendation for investors</h1>
+        <form action="/iresult">
+            {% csrf_token %}
+                {% load static %}
+            <div class="form-group">
+                <label for="fullname">Area:</label>
+                <input type="number" id="fullname" name="ae"  required>
+            </div>
+            <div class="form-group">
+                <label for="fullname">Item:</label>
+                <input type="number" id="fullname" name="I"  required>
+            </div>
+            <div class="form-group">
+                <label for="country">Average Rainfall:</label>
+                <input type="number" id="phone" name="ar" step="0.01" min="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="email">pesticides in tonnes:</label>
+                <input type="number" id="email" name="pt" step="0.01" min="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Average Temprature: </label>
+                <input type="number" id="password" name="at" step="0.01" min="0.01" required>
+            </div>
+          
+            
+            <div class="form-group">
+                <button type="submit" value="PREDICT">PREDICT</button><br><br>
+                
+            </div>
+            <div class="row">
+                <h1>{{result}}</h1>
+              </div>
+        </form>
+    </div>
+    
+    
+
+    <footer>
+        <p>&copy; 2024 Crop Yield Predictor</p>
+    </footer>
+</body>
+</html>

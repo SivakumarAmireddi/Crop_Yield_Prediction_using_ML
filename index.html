@@ -1,0 +1,114 @@
+<!-- index.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+
+/* Global Styles */
+body {
+    background-image:url("{% static 'crop.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('crop_field.jpg'); /* Assuming you have an image named crop_field.jpg */
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h2 {
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+       <center><h1>Crop Yield Predictor</h1></center> 
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Maximize Your Crop Yield</h2>
+            <p>Use our advanced tools and techniques to predict and optimize your crop yield.</p>
+            <a href="{% url 'farmer' %}" class="btn">Farmers</a>
+            <a href="{% url 'investor' %}" class="btn">Investor</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Crop Yield Predictor</p>
+    </footer>
+</body>
+</html>
